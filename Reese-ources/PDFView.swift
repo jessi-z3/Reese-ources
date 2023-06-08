@@ -13,12 +13,18 @@ struct PDFViewView: View {
     // Creating a URL for the PDF and saving it in the pdfUrl variable
     var body: some View {
         let pdfUrl = Bundle.main.url(forResource: name, withExtension: "pdf")
+        
+        HStack{
+            VStack{
+                
+                // Using the PDFKitView and passing the previously created pdfURL
+                PDFKitView(url: pdfUrl!)
+                    .scaledToFill()
+                ShareLink(item: pdfUrl!).font(.custom("Gabriela-Regular", size: 18)).frame(width: 100, height: 30).background(Color("reeselightblue")).cornerRadius(9).padding(5)
 
-        VStack{
-            // Using the PDFKitView and passing the previously created pdfURL
-            PDFKitView(url: pdfUrl!)
-                .scaledToFill()
+            }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity).background(Color("reeseblue"))
     }
 }
 struct PDFKitView: UIViewRepresentable {

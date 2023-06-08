@@ -9,11 +9,19 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        NavigationView{
+        NavigationStack{
             VStack {
                 HStack{
-                    Image("icons8-bookshelf-100").resizable().frame(width: 60, height: 60).cornerRadius(15).padding()
-                    Image("icons8-crayon-100").resizable().frame(width: 60, height: 60).cornerRadius(15).padding()
+                    NavigationLink{
+                        BookList()
+                    } label: {
+                        Image("icons8-bookshelf-100").resizable().frame(width: 60, height: 60).cornerRadius(15).padding()
+                    }
+                    NavigationLink{
+                        Activities()
+                    }label:{
+                        Image("icons8-crayon-100").resizable().frame(width: 60, height: 60).cornerRadius(15).padding()
+                    }
                     Image("icons8-danger-100").resizable().frame(width: 60, height: 60).cornerRadius(15).padding()
                 }
                 
