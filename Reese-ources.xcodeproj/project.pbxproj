@@ -14,6 +14,13 @@
 		48F056C72A3134AB00F5C324 /* Reese_ourcesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F056C62A3134AB00F5C324 /* Reese_ourcesTests.swift */; };
 		48F056D12A3134AB00F5C324 /* Reese_ourcesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F056D02A3134AB00F5C324 /* Reese_ourcesUITests.swift */; };
 		48F056D32A3134AB00F5C324 /* Reese_ourcesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F056D22A3134AB00F5C324 /* Reese_ourcesUITestsLaunchTests.swift */; };
+		48F056E92A3142E100F5C324 /* DancingScript-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 48F056E72A3142E100F5C324 /* DancingScript-Bold.ttf */; };
+		48F056EA2A3142E100F5C324 /* Gabriela-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 48F056E82A3142E100F5C324 /* Gabriela-Regular.ttf */; };
+		48F056EC2A31526100F5C324 /* PDFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F056EB2A31526100F5C324 /* PDFView.swift */; };
+		48F056F02A3156D300F5C324 /* BRAVE.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 48F056EF2A3156D300F5C324 /* BRAVE.pdf */; };
+		48F056F42A316CF900F5C324 /* Program.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 48F056F12A316CF900F5C324 /* Program.pdf */; };
+		48F056F52A316CF900F5C324 /* Pledge.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 48F056F22A316CF900F5C324 /* Pledge.pdf */; };
+		48F056F62A316CF900F5C324 /* Mission.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 48F056F32A316CF900F5C324 /* Mission.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +51,14 @@
 		48F056CC2A3134AB00F5C324 /* Reese-ourcesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Reese-ourcesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		48F056D02A3134AB00F5C324 /* Reese_ourcesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reese_ourcesUITests.swift; sourceTree = "<group>"; };
 		48F056D22A3134AB00F5C324 /* Reese_ourcesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reese_ourcesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		48F056E52A3142D400F5C324 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48F056E72A3142E100F5C324 /* DancingScript-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DancingScript-Bold.ttf"; sourceTree = "<group>"; };
+		48F056E82A3142E100F5C324 /* Gabriela-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gabriela-Regular.ttf"; sourceTree = "<group>"; };
+		48F056EB2A31526100F5C324 /* PDFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFView.swift; sourceTree = "<group>"; };
+		48F056EF2A3156D300F5C324 /* BRAVE.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = BRAVE.pdf; sourceTree = "<group>"; };
+		48F056F12A316CF900F5C324 /* Program.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Program.pdf; sourceTree = "<group>"; };
+		48F056F22A316CF900F5C324 /* Pledge.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Pledge.pdf; sourceTree = "<group>"; };
+		48F056F32A316CF900F5C324 /* Mission.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Mission.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +89,8 @@
 		48F056A92A3134AA00F5C324 = {
 			isa = PBXGroup;
 			children = (
+				48F056E72A3142E100F5C324 /* DancingScript-Bold.ttf */,
+				48F056E82A3142E100F5C324 /* Gabriela-Regular.ttf */,
 				48F056B42A3134AA00F5C324 /* Reese-ources */,
 				48F056C52A3134AB00F5C324 /* Reese-ourcesTests */,
 				48F056CF2A3134AB00F5C324 /* Reese-ourcesUITests */,
@@ -94,8 +111,14 @@
 		48F056B42A3134AA00F5C324 /* Reese-ources */ = {
 			isa = PBXGroup;
 			children = (
+				48F056F32A316CF900F5C324 /* Mission.pdf */,
+				48F056F22A316CF900F5C324 /* Pledge.pdf */,
+				48F056F12A316CF900F5C324 /* Program.pdf */,
+				48F056EF2A3156D300F5C324 /* BRAVE.pdf */,
+				48F056E52A3142D400F5C324 /* Info.plist */,
 				48F056B52A3134AA00F5C324 /* Reese_ourcesApp.swift */,
 				48F056B72A3134AA00F5C324 /* ContentView.swift */,
+				48F056EB2A31526100F5C324 /* PDFView.swift */,
 				48F056B92A3134AB00F5C324 /* Assets.xcassets */,
 				48F056BB2A3134AB00F5C324 /* Preview Content */,
 			);
@@ -231,8 +254,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48F056F02A3156D300F5C324 /* BRAVE.pdf in Resources */,
 				48F056BD2A3134AB00F5C324 /* Preview Assets.xcassets in Resources */,
+				48F056F52A316CF900F5C324 /* Pledge.pdf in Resources */,
+				48F056EA2A3142E100F5C324 /* Gabriela-Regular.ttf in Resources */,
+				48F056F42A316CF900F5C324 /* Program.pdf in Resources */,
+				48F056F62A316CF900F5C324 /* Mission.pdf in Resources */,
 				48F056BA2A3134AB00F5C324 /* Assets.xcassets in Resources */,
+				48F056E92A3142E100F5C324 /* DancingScript-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +288,7 @@
 			files = (
 				48F056B82A3134AA00F5C324 /* ContentView.swift in Sources */,
 				48F056B62A3134AA00F5C324 /* Reese_ourcesApp.swift in Sources */,
+				48F056EC2A31526100F5C324 /* PDFView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,15 +446,17 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Reese-ources/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "DancingScript-Bold.ttf Reese-ources/Preview\\ Content Gabriela-Regular.ttf";
 				DEVELOPMENT_TEAM = AG7M436GF7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Reese-ources/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Reese-ources";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -445,15 +477,17 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Reese-ources/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "DancingScript-Bold.ttf Reese-ources/Preview\\ Content Gabriela-Regular.ttf";
 				DEVELOPMENT_TEAM = AG7M436GF7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Reese-ources/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Reese-ources";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
