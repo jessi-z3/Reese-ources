@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.managedObjectContext) var context
+
     var body: some View {
         NavigationStack{
             VStack {
@@ -15,18 +17,22 @@ struct ContentView: View {
                     NavigationLink{
                         BookList()
                     } label: {
-                        Image("icons8-bookshelf-100").resizable().frame(width: 60, height: 60).cornerRadius(15).padding()
+                        Image("icons8-bookshelf-100").resizable().frame(width: 45, height: 45).cornerRadius(10).padding()
                     }
                     NavigationLink{
                         Activities()
                     }label:{
-                        Image("icons8-crayon-100").resizable().frame(width: 60, height: 60).cornerRadius(15).padding()
+                        Image("icons8-crayon-100").resizable().frame(width: 45, height: 45).cornerRadius(10).padding()
                     }
-                    Image("icons8-danger-100").resizable().frame(width: 60, height: 60).cornerRadius(15).padding()
+                    NavigationLink{
+                        Help()
+                    }label:{
+                        Image("icons8-danger-100").resizable().frame(width: 45, height: 45).cornerRadius(10).padding()
+                    }
                 }
                 
                 Image("Logo")
-                    .resizable().scaledToFit().frame(height: 220).padding(15)
+                    .resizable().scaledToFit().frame(height: 195).padding(15)
                 VStack{
                     HStack{
                         NavigationLink{
@@ -67,7 +73,7 @@ struct ContentView: View {
                     }
                 }
                 Image("brave-logo2x")
-                    .resizable().scaledToFit()
+                    .resizable().scaledToFit().padding(15)
  
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)

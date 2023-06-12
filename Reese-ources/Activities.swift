@@ -12,7 +12,7 @@ struct Activities: View {
         NavigationStack{
             VStack{
                 Text("Activities")
-                        .font(.custom("DancingScript-Bold", size: 70)).foregroundColor(.white)
+                    .font(.custom("DancingScript-Bold", size: 70)).foregroundColor(.white).padding(25)
                 Spacer()
                 VStack{
                     HStack{
@@ -20,7 +20,7 @@ struct Activities: View {
 //                            Quiz()
                         }label: {
                             ZStack{
-                                RoundedRectangle(cornerRadius: 45).fill(Color("reeselightblue")).frame(width: 170, height: 125)
+                                RoundedRectangle(cornerRadius: 45).fill(Color("reeselightblue")).frame(width: 160, height: 125)
                                 Text("Quiz").foregroundColor(Color.accentColor).font(.custom("Gabriela-Regular", size: 24))
                                 
                             }}.padding(5)
@@ -28,7 +28,7 @@ struct Activities: View {
                             Coloring()
                         }label: {
                             ZStack{
-                                RoundedRectangle(cornerRadius: 45).fill(Color("reeselightblue")).frame(width: 170, height: 125)
+                                RoundedRectangle(cornerRadius: 45).fill(Color("reeselightblue")).frame(width: 160, height: 125)
                                 Text("Coloring").foregroundColor(Color.accentColor).font(.custom("Gabriela-Regular", size: 24))
                                 
                             }}.padding(5)
@@ -39,16 +39,16 @@ struct Activities: View {
                             PDFViewView(name: "Kindness-Catcher")
                         }label: {
                             ZStack{
-                                RoundedRectangle(cornerRadius: 45).fill(Color("reeselightblue")).frame(width: 170, height: 125)
-                                Text("Kindness Catcher").foregroundColor(Color.accentColor).font(.custom("Gabriela-Regular", size: 24))
+                                RoundedRectangle(cornerRadius: 45).fill(Color("reeselightblue")).frame(width: 160, height: 125)
+                                Text("Kindness Catcher").foregroundColor(Color.accentColor).font(.custom("Gabriela-Regular", size: 24)).frame(width: 160, height: 125)
                                 
                             }}.padding(5)
                         NavigationLink{
-                            //                    Writing()
+                            Writing()
                         }label: {
                             ZStack{
-                                RoundedRectangle(cornerRadius: 45).fill(Color("reeselightblue")).frame(width: 170, height: 125)
-                                Text("Writing Prompts").foregroundColor(Color.accentColor).font(.custom("Gabriela-Regular", size: 24))
+                                RoundedRectangle(cornerRadius: 45).fill(Color("reeselightblue")).frame(width: 160, height: 125)
+                                Text("Writing Prompts").foregroundColor(Color.accentColor).font(.custom("Gabriela-Regular", size: 24)).frame(width: 160, height: 125)
                                 
                             }}.padding(5)
                     }
@@ -56,8 +56,9 @@ struct Activities: View {
                 }
                 Spacer()
                 Image("brave-logo2x")
-                    .resizable().scaledToFit().padding(55)
+                    .resizable().scaledToFit().padding(30)
             }
+            
             .frame(maxWidth: .infinity, maxHeight: .infinity).background(Color("reeseblue"))
         }
     }
