@@ -33,6 +33,10 @@
 		4852E1E22A37CAD400AE450D /* Prompt+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4852E1E02A37CAD400AE450D /* Prompt+CoreDataClass.swift */; };
 		4852E1E32A37CAD400AE450D /* Prompt+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4852E1E12A37CAD400AE450D /* Prompt+CoreDataProperties.swift */; };
 		4852E1E52A37DA2100AE450D /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4852E1E42A37DA2100AE450D /* PersistenceController.swift */; };
+		4852E1E72A37E18400AE450D /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4852E1E62A37E18400AE450D /* Quiz.swift */; };
+		4852E1E92A37FD6B00AE450D /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4852E1E82A37FD6B00AE450D /* Buttons.swift */; };
+		4852E1EB2A37FDA300AE450D /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4852E1EA2A37FDA300AE450D /* QuestionView.swift */; };
+		4852E1ED2A38000200AE450D /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4852E1EC2A38000200AE450D /* ScoreView.swift */; };
 		48F056B62A3134AA00F5C324 /* Reese_ourcesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F056B52A3134AA00F5C324 /* Reese_ourcesApp.swift */; };
 		48F056B82A3134AA00F5C324 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F056B72A3134AA00F5C324 /* ContentView.swift */; };
 		48F056BA2A3134AB00F5C324 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48F056B92A3134AB00F5C324 /* Assets.xcassets */; };
@@ -93,6 +97,10 @@
 		4852E1E02A37CAD400AE450D /* Prompt+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Prompt+CoreDataClass.swift"; path = "Reese-ources/Prompt+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4852E1E12A37CAD400AE450D /* Prompt+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Prompt+CoreDataProperties.swift"; path = "Reese-ources/Prompt+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4852E1E42A37DA2100AE450D /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		4852E1E62A37E18400AE450D /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
+		4852E1E82A37FD6B00AE450D /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
+		4852E1EA2A37FDA300AE450D /* QuestionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
+		4852E1EC2A38000200AE450D /* ScoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		48F056B22A3134AA00F5C324 /* Reese-ources.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reese-ources.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		48F056B52A3134AA00F5C324 /* Reese_ourcesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reese_ourcesApp.swift; sourceTree = "<group>"; };
 		48F056B72A3134AA00F5C324 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -165,6 +173,9 @@
 		48F056B42A3134AA00F5C324 /* Reese-ources */ = {
 			isa = PBXGroup;
 			children = (
+				4852E1EA2A37FDA300AE450D /* QuestionView.swift */,
+				4852E1EC2A38000200AE450D /* ScoreView.swift */,
+				4852E1E82A37FD6B00AE450D /* Buttons.swift */,
 				48248BD92A32759D001DEE39 /* Kindness-Catcher.pdf */,
 				48248BDC2A32759D001DEE39 /* Kindness1-1.pdf */,
 				48248BDE2A32759D001DEE39 /* Kindness1-2.pdf */,
@@ -199,6 +210,7 @@
 				48F056BB2A3134AB00F5C324 /* Preview Content */,
 				48248BF42A328D26001DEE39 /* Launch Screen.storyboard */,
 				4852E1E42A37DA2100AE450D /* PersistenceController.swift */,
+				4852E1E62A37E18400AE450D /* Quiz.swift */,
 			);
 			path = "Reese-ources";
 			sourceTree = "<group>";
@@ -386,10 +398,14 @@
 				4800B15C2A3657BB00CD6F60 /* Prompts.swift in Sources */,
 				48284C812A32262900DADC43 /* BookList.swift in Sources */,
 				4852E1E32A37CAD400AE450D /* Prompt+CoreDataProperties.swift in Sources */,
+				4852E1E92A37FD6B00AE450D /* Buttons.swift in Sources */,
 				48F056B82A3134AA00F5C324 /* ContentView.swift in Sources */,
+				4852E1EB2A37FDA300AE450D /* QuestionView.swift in Sources */,
 				48248BF92A32A819001DEE39 /* Writing.swift in Sources */,
+				4852E1ED2A38000200AE450D /* ScoreView.swift in Sources */,
 				48F056B62A3134AA00F5C324 /* Reese_ourcesApp.swift in Sources */,
 				48248BF12A327631001DEE39 /* Activities.swift in Sources */,
+				4852E1E72A37E18400AE450D /* Quiz.swift in Sources */,
 				48248BFC2A32C7DE001DEE39 /* Prompts.xcdatamodeld in Sources */,
 				4800B15A2A36573200CD6F60 /* PromptView.swift in Sources */,
 				48F056EC2A31526100F5C324 /* PDFView.swift in Sources */,
@@ -560,6 +576,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -594,6 +611,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -17,7 +17,7 @@ struct Activities: View {
                 VStack{
                     HStack{
                         NavigationLink{
-//                            Quiz()
+                            Quiz()
                         }label: {
                             ZStack{
                                 RoundedRectangle(cornerRadius: 45).fill(Color("reeselightblue")).frame(width: 160, height: 125)
@@ -56,7 +56,8 @@ struct Activities: View {
                 }
                 Spacer()
                 Image("brave-logo2x")
-                    .resizable().scaledToFit().padding(30)
+                    .resizable().scaledToFit()
+                    .frame(width: UIScreen.main.bounds.width-20, alignment: .center)
             }
             
             .frame(maxWidth: .infinity, maxHeight: .infinity).background(Color("reeseblue"))

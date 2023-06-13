@@ -32,14 +32,14 @@ struct ContentView: View {
                 }
                 
                 Image("Logo")
-                    .resizable().scaledToFit().frame(height: 195).padding(15)
+                    .resizable().scaledToFit().frame(height: 195).padding(5)
                 VStack{
                     HStack{
                         NavigationLink{
                         PDFViewView(name: "Mission")
                         }label: {
                             ZStack{
-                                RoundedRectangle(cornerRadius: 45).fill(Color("reeselightblue")).frame(width: 170, height: 125)
+                                RoundedRectangle(cornerRadius: 45).fill(Color("reeselightblue")).frame(width: 170, height: 115)
                                 Text("Mission").foregroundColor(Color.accentColor).font(.custom("Gabriela-Regular", size: 24))
                                 
                             }}.padding(5)
@@ -47,7 +47,7 @@ struct ContentView: View {
                         PDFViewView(name: "Program")
                         }label: {
                             ZStack{
-                                RoundedRectangle(cornerRadius: 45).fill(Color("reeselightblue")).frame(width: 170, height: 125)
+                                RoundedRectangle(cornerRadius: 45).fill(Color("reeselightblue")).frame(width: 170, height: 115)
                                 Text("Program").foregroundColor(Color.accentColor).font(.custom("Gabriela-Regular", size: 24))
                                 
                             }}.padding(5)
@@ -58,7 +58,7 @@ struct ContentView: View {
                         PDFViewView(name: "BRAVE")
                         }label: {
                             ZStack{
-                                RoundedRectangle(cornerRadius: 45).fill(Color("reeselightblue")).frame(width: 170, height: 125)
+                                RoundedRectangle(cornerRadius: 45).fill(Color("reeselightblue")).frame(width: 170, height: 115)
                                 Text("Be B.R.A.V.E.").foregroundColor(Color.accentColor).font(.custom("Gabriela-Regular", size: 24))
                                 
                             }}.padding(5)
@@ -66,14 +66,15 @@ struct ContentView: View {
                         PDFViewView(name: "Pledge")
                         }label: {
                             ZStack{
-                                RoundedRectangle(cornerRadius: 45).fill(Color("reeselightblue")).frame(width: 170, height: 125)
+                                RoundedRectangle(cornerRadius: 45).fill(Color("reeselightblue")).frame(width: 170, height: 115)
                                 Text("Pledge").foregroundColor(Color.accentColor).font(.custom("Gabriela-Regular", size: 24))
                                 
                             }}.padding(5)
                     }
                 }
                 Image("brave-logo2x")
-                    .resizable().scaledToFit().padding(15)
+                    .resizable().scaledToFit()
+                    .frame(width: UIScreen.main.bounds.width-20, alignment: .center)
  
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
