@@ -12,70 +12,72 @@ struct ContentView: View {
 
     var body: some View {
         NavigationStack{
-            VStack {
-                HStack{
-                    NavigationLink{
-                        BookList()
-                    } label: {
-                        Image("icons8-bookshelf-100").resizable().frame(width: 45, height: 45).cornerRadius(10).padding()
-                    }
-                    NavigationLink{
-                        Activities()
-                    }label:{
-                        Image("icons8-crayon-100").resizable().frame(width: 45, height: 45).cornerRadius(10).padding()
-                    }
-                    NavigationLink{
-                        Help()
-                    }label:{
-                        Image("icons8-danger-100").resizable().frame(width: 45, height: 45).cornerRadius(10).padding()
-                    }
-                }
-                
-                Image("Logo")
-                    .resizable().scaledToFit().frame(height: 195).padding(5)
-                VStack{
+            ScrollView{
+                VStack {
                     HStack{
                         NavigationLink{
-                        PDFViewView(name: "Mission")
-                        }label: {
-                            ZStack{
-                                RoundedRectangle(cornerRadius: 45).fill(Color("reeselightblue")).frame(width: 170, height: 115)
-                                Text("Mission").foregroundColor(Color.accentColor).font(.custom("Gabriela-Regular", size: 24))
-                                
-                            }}.padding(5)
+                            BookList()
+                        } label: {
+                            Image("icons8-bookshelf-100").resizable().frame(width: 45, height: 45).cornerRadius(10).padding()
+                        }
                         NavigationLink{
-                        PDFViewView(name: "Program")
-                        }label: {
-                            ZStack{
-                                RoundedRectangle(cornerRadius: 45).fill(Color("reeselightblue")).frame(width: 170, height: 115)
-                                Text("Program").foregroundColor(Color.accentColor).font(.custom("Gabriela-Regular", size: 24))
-                                
-                            }}.padding(5)
-                        
+                            Activities()
+                        }label:{
+                            Image("icons8-crayon-100").resizable().frame(width: 45, height: 45).cornerRadius(10).padding()
+                        }
+                        NavigationLink{
+                            Help()
+                        }label:{
+                            Image("icons8-danger-100").resizable().frame(width: 45, height: 45).cornerRadius(10).padding()
+                        }
                     }
-                    HStack{
-                        NavigationLink{
-                        PDFViewView(name: "BRAVE")
-                        }label: {
-                            ZStack{
-                                RoundedRectangle(cornerRadius: 45).fill(Color("reeselightblue")).frame(width: 170, height: 115)
-                                Text("Be B.R.A.V.E.").foregroundColor(Color.accentColor).font(.custom("Gabriela-Regular", size: 24))
-                                
-                            }}.padding(5)
-                        NavigationLink{
-                        PDFViewView(name: "Pledge")
-                        }label: {
-                            ZStack{
-                                RoundedRectangle(cornerRadius: 45).fill(Color("reeselightblue")).frame(width: 170, height: 115)
-                                Text("Pledge").foregroundColor(Color.accentColor).font(.custom("Gabriela-Regular", size: 24))
-                                
-                            }}.padding(5)
+                    
+                    Image("Logo")
+                        .resizable().scaledToFit().frame(height: 195).padding(5)
+                    VStack{
+                        HStack{
+                            NavigationLink{
+                                PDFViewView(name: "Mission")
+                            }label: {
+                                ZStack{
+                                    RoundedRectangle(cornerRadius: 45).fill(Color("reeselightblue")).frame(width: 170, height: 125)
+                                    Text("Mission").foregroundColor(Color.accentColor).font(.custom("Gabriela-Regular", size: 24))
+                                    
+                                }}.padding(5)
+                            NavigationLink{
+                                PDFViewView(name: "Program")
+                            }label: {
+                                ZStack{
+                                    RoundedRectangle(cornerRadius: 45).fill(Color("reeselightblue")).frame(width: 170, height: 125)
+                                    Text("Program").foregroundColor(Color.accentColor).font(.custom("Gabriela-Regular", size: 24))
+                                    
+                                }}.padding(5)
+                            
+                        }
+                        HStack{
+                            NavigationLink{
+                                PDFViewView(name: "BRAVE")
+                            }label: {
+                                ZStack{
+                                    RoundedRectangle(cornerRadius: 45).fill(Color("reeselightblue")).frame(width: 170, height: 125)
+                                    Text("Be B.R.A.V.E.").foregroundColor(Color.accentColor).font(.custom("Gabriela-Regular", size: 24))
+                                    
+                                }}.padding(5)
+                            NavigationLink{
+                                PDFViewView(name: "Pledge")
+                            }label: {
+                                ZStack{
+                                    RoundedRectangle(cornerRadius: 45).fill(Color("reeselightblue")).frame(width: 170, height: 125)
+                                    Text("Pledge").foregroundColor(Color.accentColor).font(.custom("Gabriela-Regular", size: 24))
+                                    
+                                }}.padding(5)
+                        }
                     }
+                    Image("brave-logo2x")
+                        .resizable().scaledToFit()
+                        .frame(width: UIScreen.main.bounds.width-20, alignment: .center)
+                    Spotlight()
                 }
-                Image("brave-logo2x")
-                    .resizable().scaledToFit()
-                    .frame(width: UIScreen.main.bounds.width-20, alignment: .center)
- 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color("reeseblue"))

@@ -37,6 +37,9 @@
 		4852E1E92A37FD6B00AE450D /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4852E1E82A37FD6B00AE450D /* Buttons.swift */; };
 		4852E1EB2A37FDA300AE450D /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4852E1EA2A37FDA300AE450D /* QuestionView.swift */; };
 		4852E1ED2A38000200AE450D /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4852E1EC2A38000200AE450D /* ScoreView.swift */; };
+		489E9CF32A3A2588007EF3CB /* DancingScript-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 48F056E72A3142E100F5C324 /* DancingScript-Bold.ttf */; };
+		489E9CF42A3A258D007EF3CB /* Gabriela-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 48F056E82A3142E100F5C324 /* Gabriela-Regular.ttf */; };
+		48C74BAC2A3A6DC50093F101 /* Spotlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C74BAB2A3A6DC50093F101 /* Spotlight.swift */; };
 		48F056B62A3134AA00F5C324 /* Reese_ourcesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F056B52A3134AA00F5C324 /* Reese_ourcesApp.swift */; };
 		48F056B82A3134AA00F5C324 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F056B72A3134AA00F5C324 /* ContentView.swift */; };
 		48F056BA2A3134AB00F5C324 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48F056B92A3134AB00F5C324 /* Assets.xcassets */; };
@@ -44,8 +47,6 @@
 		48F056C72A3134AB00F5C324 /* Reese_ourcesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F056C62A3134AB00F5C324 /* Reese_ourcesTests.swift */; };
 		48F056D12A3134AB00F5C324 /* Reese_ourcesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F056D02A3134AB00F5C324 /* Reese_ourcesUITests.swift */; };
 		48F056D32A3134AB00F5C324 /* Reese_ourcesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F056D22A3134AB00F5C324 /* Reese_ourcesUITestsLaunchTests.swift */; };
-		48F056E92A3142E100F5C324 /* DancingScript-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 48F056E72A3142E100F5C324 /* DancingScript-Bold.ttf */; };
-		48F056EA2A3142E100F5C324 /* Gabriela-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 48F056E82A3142E100F5C324 /* Gabriela-Regular.ttf */; };
 		48F056EC2A31526100F5C324 /* PDFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F056EB2A31526100F5C324 /* PDFView.swift */; };
 		48F056F02A3156D300F5C324 /* BRAVE.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 48F056EF2A3156D300F5C324 /* BRAVE.pdf */; };
 		48F056F42A316CF900F5C324 /* Program.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 48F056F12A316CF900F5C324 /* Program.pdf */; };
@@ -101,6 +102,8 @@
 		4852E1E82A37FD6B00AE450D /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		4852E1EA2A37FDA300AE450D /* QuestionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		4852E1EC2A38000200AE450D /* ScoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
+		48C74BAA2A3A6CB80093F101 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48C74BAB2A3A6DC50093F101 /* Spotlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spotlight.swift; sourceTree = "<group>"; };
 		48F056B22A3134AA00F5C324 /* Reese-ources.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reese-ources.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		48F056B52A3134AA00F5C324 /* Reese_ourcesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reese_ourcesApp.swift; sourceTree = "<group>"; };
 		48F056B72A3134AA00F5C324 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -111,7 +114,6 @@
 		48F056CC2A3134AB00F5C324 /* Reese-ourcesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Reese-ourcesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		48F056D02A3134AB00F5C324 /* Reese_ourcesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reese_ourcesUITests.swift; sourceTree = "<group>"; };
 		48F056D22A3134AB00F5C324 /* Reese_ourcesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reese_ourcesUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		48F056E52A3142D400F5C324 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48F056E72A3142E100F5C324 /* DancingScript-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DancingScript-Bold.ttf"; sourceTree = "<group>"; };
 		48F056E82A3142E100F5C324 /* Gabriela-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gabriela-Regular.ttf"; sourceTree = "<group>"; };
 		48F056EB2A31526100F5C324 /* PDFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFView.swift; sourceTree = "<group>"; };
@@ -146,13 +148,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		48C74BA72A3A60100093F101 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				48F056E72A3142E100F5C324 /* DancingScript-Bold.ttf */,
+				48F056E82A3142E100F5C324 /* Gabriela-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		48F056A92A3134AA00F5C324 = {
 			isa = PBXGroup;
 			children = (
 				4852E1E02A37CAD400AE450D /* Prompt+CoreDataClass.swift */,
 				4852E1E12A37CAD400AE450D /* Prompt+CoreDataProperties.swift */,
-				48F056E72A3142E100F5C324 /* DancingScript-Bold.ttf */,
-				48F056E82A3142E100F5C324 /* Gabriela-Regular.ttf */,
 				48F056B42A3134AA00F5C324 /* Reese-ources */,
 				48F056C52A3134AB00F5C324 /* Reese-ourcesTests */,
 				48F056CF2A3134AB00F5C324 /* Reese-ourcesUITests */,
@@ -173,6 +182,8 @@
 		48F056B42A3134AA00F5C324 /* Reese-ources */ = {
 			isa = PBXGroup;
 			children = (
+				48C74BAA2A3A6CB80093F101 /* Info.plist */,
+				48C74BA72A3A60100093F101 /* Fonts */,
 				4852E1EA2A37FDA300AE450D /* QuestionView.swift */,
 				4852E1EC2A38000200AE450D /* ScoreView.swift */,
 				4852E1E82A37FD6B00AE450D /* Buttons.swift */,
@@ -194,9 +205,9 @@
 				48F056F22A316CF900F5C324 /* Pledge.pdf */,
 				48F056F12A316CF900F5C324 /* Program.pdf */,
 				48F056EF2A3156D300F5C324 /* BRAVE.pdf */,
-				48F056E52A3142D400F5C324 /* Info.plist */,
 				48F056B52A3134AA00F5C324 /* Reese_ourcesApp.swift */,
 				48F056B72A3134AA00F5C324 /* ContentView.swift */,
+				48C74BAB2A3A6DC50093F101 /* Spotlight.swift */,
 				48F056EB2A31526100F5C324 /* PDFView.swift */,
 				48284C802A32262900DADC43 /* BookList.swift */,
 				48248BF02A327631001DEE39 /* Activities.swift */,
@@ -344,6 +355,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				489E9CF42A3A258D007EF3CB /* Gabriela-Regular.ttf in Resources */,
+				489E9CF32A3A2588007EF3CB /* DancingScript-Bold.ttf in Resources */,
 				48248BE82A32759E001DEE39 /* Kindness2-2.pdf in Resources */,
 				48F056F02A3156D300F5C324 /* BRAVE.pdf in Resources */,
 				48248BE62A32759E001DEE39 /* Kindness2-9.pdf in Resources */,
@@ -357,7 +370,6 @@
 				48248BE92A32759E001DEE39 /* Kindness2-1.pdf in Resources */,
 				48248BEF2A32759E001DEE39 /* Kindness1-3.pdf in Resources */,
 				48F056F52A316CF900F5C324 /* Pledge.pdf in Resources */,
-				48F056EA2A3142E100F5C324 /* Gabriela-Regular.ttf in Resources */,
 				48F056F42A316CF900F5C324 /* Program.pdf in Resources */,
 				48F056F62A316CF900F5C324 /* Mission.pdf in Resources */,
 				48248BE22A32759E001DEE39 /* Kindness2-7.pdf in Resources */,
@@ -366,7 +378,6 @@
 				48248BEB2A32759E001DEE39 /* Kindness2-4.pdf in Resources */,
 				48248BE42A32759E001DEE39 /* Kindness2-10.pdf in Resources */,
 				48248BF52A328D26001DEE39 /* Launch Screen.storyboard in Resources */,
-				48F056E92A3142E100F5C324 /* DancingScript-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +408,7 @@
 				4852E1E22A37CAD400AE450D /* Prompt+CoreDataClass.swift in Sources */,
 				4800B15C2A3657BB00CD6F60 /* Prompts.swift in Sources */,
 				48284C812A32262900DADC43 /* BookList.swift in Sources */,
+				48C74BAC2A3A6DC50093F101 /* Spotlight.swift in Sources */,
 				4852E1E32A37CAD400AE450D /* Prompt+CoreDataProperties.swift in Sources */,
 				4852E1E92A37FD6B00AE450D /* Buttons.swift in Sources */,
 				48F056B82A3134AA00F5C324 /* ContentView.swift in Sources */,
@@ -566,7 +578,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "DancingScript-Bold.ttf Reese-ources/Preview\\ Content Gabriela-Regular.ttf";
+				DEVELOPMENT_ASSET_PATHS = "Reese-ources/Fonts/DancingScript-Bold.ttf Reese-ources/Preview\\ Content Reese-ources/Fonts/Gabriela-Regular.ttf";
 				DEVELOPMENT_TEAM = AG7M436GF7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -578,11 +590,12 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "YellowBird.dev.Reese-ources";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -601,7 +614,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "DancingScript-Bold.ttf Reese-ources/Preview\\ Content Gabriela-Regular.ttf";
+				DEVELOPMENT_ASSET_PATHS = "Reese-ources/Fonts/DancingScript-Bold.ttf Reese-ources/Preview\\ Content Reese-ources/Fonts/Gabriela-Regular.ttf";
 				DEVELOPMENT_TEAM = AG7M436GF7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -613,11 +626,12 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "YellowBird.dev.Reese-ources";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
