@@ -9,7 +9,12 @@ import SwiftUI
 import Foundation
 
 
-struct Pledge: Codable {
+struct Pledge: Codable, Identifiable, Comparable {
+    static func < (lhs: Pledge, rhs: Pledge) -> Bool {
+        return lhs.date < rhs.date
+    }
+    
+    let id = Date()
     let name: String
     let city: String
     let age: String
@@ -33,14 +38,14 @@ struct PledgeDataModel: Codable {
 
 class PledgeViewModel{
     private var sourceURL = URL(string: "https://yellowbird.dev/pledges.json")!
-    var pledgeModel: DataModel?
+    var pledgeModel: PledgeDataModel?
     
     func getAllPledges(completion: @escaping () -> ()) {
         URLSession.shared.dataTask(with: sourceURL ){[weak self](data, response, error) in
             
             if let data = data {
                 let jsonDecoder = JSONDecoder()
-                let finalData = try! jsonDecoder.decode(DataModel.self, from:data)
+                let finalData = try! jsonDecoder.decode(PledgeDataModel.self, from:data)
                 self?.pledgeModel = finalData
                 completion()
             }
@@ -51,35 +56,33 @@ class PledgeViewModel{
 struct NewsFeed: View {
     @State private var viewModel = PledgeViewModel()
     @State var pledges: [Pledge]?
+    @State private var nextIndex = 0
+
     var body: some View {
         ScrollView{
             Text(" Pledge Wall ").font(.custom("DancingScript-Bold", size: 70)).foregroundColor(.white)
-            
-            if(pledges!.isEmpty){
-                Text("None")
-            }else{ 
-                VStack(spacing: 10){
-                    ForEach(pledges!){ pledge in
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 45).fill(Color("reeselightblue")).frame(width: 315, height: 125)
-                            VStack{
-                                Text("Name: \(pledge.name)")
-                                Text("City: \(pledge.city)")
-                                Text("Age: \(pledge.age)")
-                                VStack{
-                                    Text("Date: \(pledge.date)")
-                                }.foregroundColor(Color.white).font(.custom("Gabriela-Regular", size: 18))
-                            }.foregroundColor(Color.accentColor).font(.custom("Gabriela-Regular", size: 22))
-                            
-                        }
-                    }
+            VStack(spacing: 10){
+                if pledges?[nextIndex] != nil {
+                    let pledge = pledges![nextIndex]
+                    PledgeView(pledge: pledge)
                 }
             }
         }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color("reeseblue"))
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color("reeseblue"))
+        .onAppear{
+            viewModel.getAllPledges(completion: {
+                let pledgeData = viewModel.pledgeModel
+                
+                if let data = pledgeData {
+                    if let ps = data.data {
+                        pledges = ps.pledges
+                        
+                    }
+                }
+            })
+        }
     }
-    
 }
 
 #Preview {
