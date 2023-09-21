@@ -16,6 +16,11 @@ struct ContentView: View {
                 VStack {
                     HStack{
                         NavigationLink{
+                            NewsFeed()
+                        } label: {
+                            Image("icons8-news-feed-100").resizable().frame(width: 45, height: 45).cornerRadius(10).padding()
+                        }
+                        NavigationLink{
                             BookList()
                         } label: {
                             Image("icons8-bookshelf-100").resizable().frame(width: 45, height: 45).cornerRadius(10).padding()
