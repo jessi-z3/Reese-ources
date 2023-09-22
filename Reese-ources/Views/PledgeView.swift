@@ -12,16 +12,20 @@ struct PledgeView: View {
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 45).fill(Color("reeselightblue")).frame(width: 315, height: 125)
-            VStack(alignment: .leading){
-                Text("Name: \(pledge.name)")
-                Text("City: \(pledge.city)")
-                Text("Age: \(pledge.age)")
+
                 VStack{
-                    Text("Date: \(pledge.date)")
-                }.foregroundColor(Color.white).font(.custom("Gabriela-Regular", size: 18))
-            }.foregroundColor(Color.accentColor).font(.custom("Gabriela-Regular", size: 22))
-            
-        }
+                    Text("\(pledge.name)")
+                        .font(.custom("Gabriela-Regular", size: 24))
+                    Text("\(pledge.city)")
+                            .font(.custom("Gabriela-Regular", size: 18))
+                    Text("\(pledge.age)")
+                                .font(.custom("Gabriela-Regular", size: 18))
+                    Text("\(pledge.id.formatted(date: .complete, time: .omitted))")                            .font(.custom("Gabriela-Regular", size: 14))
+
+
+                }
+            }.foregroundColor(Color.accentColor).frame(width: 315, height: 125)
+        
     }
     init(pledge: Pledge) {
         self.pledge = pledge

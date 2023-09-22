@@ -50,7 +50,8 @@ class PledgeViewModel{
                 completion()
             }
         }.resume()
-    }}
+    }
+}
 
     
 struct NewsFeed: View {
