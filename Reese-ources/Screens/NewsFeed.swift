@@ -44,7 +44,7 @@ class ViewModel: ObservableObject{
         }
         task.resume()
     }
-    func post() {
+    func post(name: String, city: String, age: Int) {
         guard let url = URL(string: "https://yellowbird.dev/pledges.json") else{
             return
         }
@@ -52,12 +52,9 @@ class ViewModel: ObservableObject{
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         request.httpMethod = "POST"
-        let pledge: [String: Any] = [
-            "name": "Jane",
-            "city": "New York",
-            "age": 18,
-        ]
-        request.httpBody = pledge.percentEncoded()
+        var pledge = Pledge(name: name, city: city, age: age)
+
+        request.httpBody = pledge.name.data(using: .utf8)
 
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard
@@ -99,8 +96,8 @@ struct NewsFeed: View {
     @StateObject var viewModel = ViewModel()
     @State var name = ""
     @State var city = ""
-    @State var age = ""
-    @State var signing = false
+    @State var age: Int = 13
+    @State var signing = true
     var body: some View {
         ScrollView{
             Text(" Pledge Wall ").font(.custom("DancingScript-Bold", size: 70)).foregroundColor(.white)
@@ -112,16 +109,42 @@ struct NewsFeed: View {
             }
             .buttonStyle(.borderedProminent)
             if signing{
-                VStack{
-                    TextField("Name", text: $name)
-                        .textFieldStyle(.roundedBorder)
-                    TextField("City", text: $city)
-                        .textFieldStyle(.roundedBorder)
-                    TextField("Age", text: $age)
-                        .keyboardType(.numberPad)
-                        .textFieldStyle(.roundedBorder)
+                VStack(alignment: .trailing){
+                    HStack{
+                        Text("Name: ")
+                            .font(.custom("Gabriela-Regular", size: 22))
+                            .foregroundStyle(.white)
+                        TextField("", text: $name)
+                            .textFieldStyle(.roundedBorder)
+                            .frame(width: 200)
+                    }
+                    HStack{
+                        Text("City: ")
+                            .font(.custom("Gabriela-Regular", size: 22))
+                            .foregroundStyle(.white)
+                        TextField("", text: $city)
+                            .textFieldStyle(.roundedBorder)
+                            .frame(width: 200)
+
+                    }
+                    HStack{
+                        Spacer()
+                        Text("Age: ")
+                            .font(.custom("Gabriela-Regular", size: 22))
+                            .foregroundStyle(.white)
+                        Picker("", selection: $age){
+                            ForEach(5...99, id: \.self) { val in
+                                Text(val.description)
+                            }
+                        }
+                        .pickerStyle(.automatic)
+                        .frame(width: 200)
+                        .accentColor(.white)
+                    }
+                    .frame(width: 300)
+
                     Button{
-                        viewModel.post()
+                        viewModel.post(name: name, city: city, age: age)
                     }label: {
                         Text("Sign")
                             .font(.custom("Gabriela-Regular", size: 18))
