@@ -9,62 +9,49 @@ import SwiftUI
 import Foundation
 
 
-struct Pledge: Codable, Identifiable, Comparable {
-    static func < (lhs: Pledge, rhs: Pledge) -> Bool {
-        return lhs.date < rhs.date
-    }
-    
-    let id = Date()
+struct Pledge: Codable, Hashable {
     let name: String
     let city: String
-    let age: String
-    let date: String
+    let age: Int
 }
 extension Pledge {
     enum CodingKeys: String, CodingKey {
         case name = "name"
         case city = "city"
         case age = "age"
-        case date = "date"
     }
 }
-
-struct PledgeModel: Codable {
-    var pledges: [Pledge]?
-}
-struct PledgeDataModel: Codable {
-    var data:PledgeModel?
-}
-
-class PledgeViewModel{
-    private var sourceURL = URL(string: "https://yellowbird.dev/pledges.json")!
-    var pledgeModel: PledgeDataModel?
-    
-    func getAllPledges(completion: @escaping () -> ()) {
-        URLSession.shared.dataTask(with: sourceURL ){[weak self](data, response, error) in
+class ViewModel: ObservableObject{
+    @Published var pledges: [Pledge] = []
+    func fetch() {
+        guard let url = URL(string: "https://yellowbird.dev/pledges.json") else{
+            return
+        }
+        let task = URLSession.shared.dataTask(with: url ){ [weak self] data, _, error in
             
-            if let data = data {
-                let jsonDecoder = JSONDecoder()
-                let finalData = try! jsonDecoder.decode(PledgeDataModel.self, from:data)
-                self?.pledgeModel = finalData
-                completion()
+            guard let data = data, error == nil else{
+                return
             }
-        }.resume()
+            do {
+                let pledges = try JSONDecoder().decode([Pledge].self, from:data)
+                DispatchQueue.main.async{
+                    self?.pledges = pledges
+                }
+            }
+            catch {
+                print(error)
+            }
+        }
+        task.resume()
     }
 }
-
-    
 struct NewsFeed: View {
-    @State private var viewModel = PledgeViewModel()
-    @State var pledges: [Pledge]?
-    @State private var nextIndex = 0
-
+    @StateObject var viewModel = ViewModel()
     var body: some View {
         ScrollView{
             Text(" Pledge Wall ").font(.custom("DancingScript-Bold", size: 70)).foregroundColor(.white)
-            VStack(spacing: 10){
-                if pledges?[nextIndex] != nil {
-                    let pledge = pledges![nextIndex]
+            VStack{
+                ForEach(viewModel.pledges, id: \.self){ pledge in
                     PledgeView(pledge: pledge)
                 }
             }
@@ -72,16 +59,7 @@ struct NewsFeed: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color("reeseblue"))
         .onAppear{
-            viewModel.getAllPledges(completion: {
-                let pledgeData = viewModel.pledgeModel
-                
-                if let data = pledgeData {
-                    if let ps = data.data {
-                        pledges = ps.pledges
-                        
-                    }
-                }
-            })
+            viewModel.fetch()
         }
     }
 }
