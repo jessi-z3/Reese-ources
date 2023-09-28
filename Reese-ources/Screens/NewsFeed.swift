@@ -8,6 +8,9 @@
 import SwiftUI
 import Foundation
 
+struct Root: Decodable {
+    let pledges: [Pledge]
+}
 
 struct Pledge: Codable, Hashable {
     let name: String
@@ -21,83 +24,68 @@ extension Pledge {
         case age = "age"
     }
 }
+
+
+
+
 class ViewModel: ObservableObject{
-    @Published var pledges: [Pledge] = []
+    @Published var pledges: Root = Root(pledges: [Pledge(name: "Test", city: "Tester", age: 13)])
     func fetch() {
         guard let url = URL(string: "https://yellowbird.dev/pledges.json") else{
             return
         }
-        let task = URLSession.shared.dataTask(with: url ){ [weak self] data, _, error in
-            
+        let task = URLSession.shared.dataTask(with: url ){ data, _, error in
             guard let data = data, error == nil else{
                 return
             }
-            do {
-                let pledges = try JSONDecoder().decode([Pledge].self, from:data)
-                DispatchQueue.main.async{
-                    self?.pledges = pledges
-                }
-            }
-            catch {
-                print(error)
-            }
+        do {
+            self.pledges = try JSONDecoder().decode(Root.self, from:data)
+            print(self.pledges)
         }
-        task.resume()
+        catch {
+            print(error)
+        }
     }
-    func post(name: String, city: String, age: Int) {
-        guard let url = URL(string: "https://yellowbird.dev/pledges.json") else{
-            return
+    task.resume()
+}
+    
+    
+    
+    
+func post(name: String, city: String, age: Int) async {
+    let pledge = Pledge(name: name, city: city, age: age)
+    guard let url = URL(string: "https://yellowbird.dev/pledges.json") else{
+        return
+    }
+    guard let encoded = try? JSONEncoder().encode(pledge) else{
+        print("Failed to encode.")
+        return
+    }
+    var request = URLRequest(url: url)
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    request.httpMethod = "POST"
+    request.httpBody = encoded
+    do {
+        let (data, response) = try await URLSession.shared.upload(for: request, from: encoded)
+        // handle the result
+        let decodedPledges = try JSONDecoder().decode(Root.self, from: data)
+        print(response)
+    } catch {
+            print("Signing failed. \(error)")
         }
-        var request = URLRequest(url: url)
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.httpMethod = "POST"
-        var pledge = Pledge(name: name, city: city, age: age)
-
-        request.httpBody = pledge.name.data(using: .utf8)
-
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard
-                let data = data,
-                let response = response as? HTTPURLResponse,
-                error == nil
-            else {                                                               // check for fundamental networking error
-                print("error", error ?? URLError(.badServerResponse))
-                return
-            }
-            
-            guard (200 ... 299) ~= response.statusCode else {                    // check for http errors
-                print("statusCode should be 2xx, but is \(response.statusCode)")
-                print("response = \(response)")
-                return
-            }
-            
-            // do whatever you want with the `data`, e.g.:
-            
-            do {
-                let responseObject = try JSONDecoder().decode(Pledge.self, from: data)
-                print(responseObject)
-            } catch {
-                print(error) // parsing error
-                
-                if let responseString = String(data: data, encoding: .utf8) {
-                    print("responseString = \(responseString)")
-                } else {
-                    print("unable to parse response as string")
-                }
-            }
-        }
-
-        task.resume()
-        
     }
 }
+
+
+
+
+
 struct NewsFeed: View {
     @StateObject var viewModel = ViewModel()
     @State var name = ""
     @State var city = ""
     @State var age: Int = 13
-    @State var signing = true
+    @State var signing = false
     var body: some View {
         ScrollView{
             Text(" Pledge Wall ").font(.custom("DancingScript-Bold", size: 70)).foregroundColor(.white)
@@ -144,7 +132,9 @@ struct NewsFeed: View {
                     .frame(width: 300)
 
                     Button{
-                        viewModel.post(name: name, city: city, age: age)
+                        Task{
+                            await viewModel.post(name: name, city: city, age: age)
+                        }
                     }label: {
                         Text("Sign")
                             .font(.custom("Gabriela-Regular", size: 18))
@@ -155,7 +145,7 @@ struct NewsFeed: View {
                 .padding(.vertical)
             }
             VStack(spacing: 10){
-                ForEach(viewModel.pledges, id: \.self){ pledge in
+                ForEach(viewModel.pledges.pledges, id: \.self){ pledge in
                     PledgeView(pledge: pledge)
                 }
             }
@@ -166,27 +156,6 @@ struct NewsFeed: View {
             viewModel.fetch()
         }
     }
-}
-extension Dictionary {
-    func percentEncoded() -> Data? {
-        map { key, value in
-            let escapedKey = "\(key)".addingPercentEncoding(withAllowedCharacters: .urlQueryValueAllowed) ?? ""
-            let escapedValue = "\(value)".addingPercentEncoding(withAllowedCharacters: .urlQueryValueAllowed) ?? ""
-            return escapedKey + "=" + escapedValue
-        }
-        .joined(separator: "&")
-        .data(using: .utf8)
-    }
-}
-extension CharacterSet {
-    static let urlQueryValueAllowed: CharacterSet = {
-        let generalDelimitersToEncode = ":#[]@" // does not include "?" or "/" due to RFC 3986 - Section 3.4
-        let subDelimitersToEncode = "!$&'()*+,;="
-        
-        var allowed: CharacterSet = .urlQueryAllowed
-        allowed.remove(charactersIn: "\(generalDelimitersToEncode)\(subDelimitersToEncode)")
-        return allowed
-    }()
 }
 
 #Preview {
