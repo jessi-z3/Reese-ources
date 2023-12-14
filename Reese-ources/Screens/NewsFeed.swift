@@ -8,8 +8,8 @@
 import SwiftUI
 import Foundation
 
-struct Root: Decodable {
-    let pledges: [Pledge]
+struct Root: Codable {
+    var pledges: [Pledge]
 }
 
 struct Pledge: Codable, Hashable {
@@ -26,21 +26,26 @@ extension Pledge {
 }
 
 
-
+struct PledgeModel: Codable{
+    var data: Root?
+}
 
 class ViewModel: ObservableObject{
     @Published var pledges: Root = Root(pledges: [Pledge(name: "Test", city: "Tester", age: 13)])
+
+    var pledgeModel: PledgeModel?
     func fetch() {
         guard let url = URL(string: "https://yellowbird.dev/pledges.json") else{
             return
         }
-        let task = URLSession.shared.dataTask(with: url ){ data, _, error in
+        let task = URLSession.shared.dataTask(with: url ){ data, response, error in
             guard let data = data, error == nil else{
                 return
             }
         do {
-            self.pledges = try JSONDecoder().decode(Root.self, from:data)
-            print(self.pledges)
+            let finalData = try JSONDecoder().decode(PledgeModel.self, from:data)
+            self.pledgeModel = finalData
+            self.pledges.pledges = (self.pledgeModel?.data!.pledges)!
         }
         catch {
             print(error)
@@ -48,9 +53,6 @@ class ViewModel: ObservableObject{
     }
     task.resume()
 }
-    
-    
-    
     
 func post(name: String, city: String, age: Int) async {
     let pledge = Pledge(name: name, city: city, age: age)
@@ -68,8 +70,6 @@ func post(name: String, city: String, age: Int) async {
     do {
         let (data, response) = try await URLSession.shared.upload(for: request, from: encoded)
         // handle the result
-        let decodedPledges = try JSONDecoder().decode(Root.self, from: data)
-        print(response)
     } catch {
             print("Signing failed. \(error)")
         }
