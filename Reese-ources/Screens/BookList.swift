@@ -1,3 +1,7 @@
+struct IdentifiableURL: Identifiable {
+    let id = UUID()
+    let url: URL
+}
 //
 //  BookList.swift
 //  Reese-ources
@@ -7,6 +11,8 @@
 
 import SwiftUI
 import Foundation
+import SafariServices
+
 
 enum Category: String{
     case one = "Pre-School/Elementary";
@@ -193,59 +199,161 @@ extension Book {
         }
 }
 
+enum SortOption {
+    case title
+    case author
+}
+
 struct BookList: View {
+    @State private var showSafari = false
+    @State private var selectedURL: IdentifiableURL? = nil
+    @State private var searchText = ""
+    @State private var selectedCategory: Category? = nil
+    @State private var sortOption: SortOption = .title
+    
     var shelf = Book.shelf
-    var body: some View {
-        ScrollView{
-            VStack{
-                Text("Book List").font(.custom("DancingScript-Bold", size: 70)).foregroundColor(Color.accentColor).padding(15)
-                Section("Pre-School/Elementary"){
-                    ForEach(shelf) { category in
-                        if (category.category == "Pre-School/Elementary"){
-                            VStack{
-                                Text(category.author).font(.custom("DancingScript-Bold", size: 24)).foregroundColor(.white).padding(5)
-                                Text(category.title).font(.custom("Gabriela-Regular", size: 20)).underline().foregroundColor(.white)
-                                Text(category.description).font(.custom("Gabriela-Regular", size: 18)).foregroundColor(.white)
-                                
-                                
-                            }
-                        }
-                    }
-                }
-                .font(.custom("DancingScript-Bold", size: 34)).foregroundColor(.white).padding(5)
-                Section("Elementary School"){
-                    ForEach(shelf) { category in
-                        if (category.category == "Elementary School"){
-                            VStack{
-                                Text(category.author).font(.custom("DancingScript-Bold", size: 24)).foregroundColor(.white).padding(5)
-                                Text(category.title).font(.custom("Gabriela-Regular", size: 20)).underline().foregroundColor(.white)
-                                Text(category.description).font(.custom("Gabriela-Regular", size: 18)).foregroundColor(.white)
-                                
-                                
-                            }
-                        }
-                    }
-                }
-                .font(.custom("DancingScript-Bold", size: 34)).foregroundColor(.white).padding(5)
-                
-                Section("Elementary/Middle School"){
-                    ForEach(shelf) { category in
-                        if (category.category == "Elementary/Middle School"){
-                            VStack{
-                                Text(category.author).font(.custom("DancingScript-Bold", size: 24)).foregroundColor(.white).padding(5)
-                                Text(category.title).font(.custom("Gabriela-Regular", size: 20)).underline().foregroundColor(.white)
-                                Text(category.description).font(.custom("Gabriela-Regular", size: 18)).foregroundColor(.white)
-                                
-                                
-                            }
-                        }
-                    }
-                }
-                .font(.custom("DancingScript-Bold", size: 34)).foregroundColor(.white).padding(5)
+    
+    // Refactor the filtering and sorting logic
+    var filteredBooks: [Book] {
+        shelf
+            .filter {
+                (searchText.isEmpty ||
+                 $0.title.localizedCaseInsensitiveContains(searchText) ||
+                 $0.author.localizedCaseInsensitiveContains(searchText)) &&
+                (selectedCategory == nil || $0.category == selectedCategory!.rawValue)
             }
-            .padding(5)
+            .sorted(by: { sortOption == .title ? $0.title < $1.title : $0.author < $1.author })
+    }
+    
+    var body: some View {
+        NavigationView {
+            ScrollView {
+                VStack {
+                    Picker("Category", selection: $selectedCategory) {
+                        Text("All").tag(nil as Category?)
+                        ForEach([Category.one, Category.two, Category.three], id: \.self) { category in
+                            Text(category.rawValue).tag(Optional(category))
+                        }
+                    }
+                    .pickerStyle(MenuPickerStyle())
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .foregroundColor(.white)
+                    .padding()
+
+                    // Add sort option Picker
+                    Picker("Sort by", selection: $sortOption) {
+                        Text("Title").tag(SortOption.title)
+                        Text("Author").tag(SortOption.author)
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                    .padding(.horizontal)
+
+                    // Use filteredBooks directly here
+                    Section(header: Text("Pre-School/Elementary")
+                        .font(.custom("DancingScript-Bold", size: 34))
+                        .foregroundColor(.white)
+                        .padding(5)) {
+                        ForEach(filteredBooks.filter { $0.category == Category.one.rawValue }) { category in
+                            BookCardView(book: category, showSafari: $showSafari, selectedURL: $selectedURL)
+                        }
+                    }
+
+                    Section(header: Text("Elementary School")
+                        .font(.custom("DancingScript-Bold", size: 34))
+                        .foregroundColor(.white)
+                        .padding(5)) {
+                        ForEach(filteredBooks.filter { $0.category == Category.two.rawValue }) { category in
+                            BookCardView(book: category, showSafari: $showSafari, selectedURL: $selectedURL)
+                        }
+                    }
+
+                    Section(header: Text("Elementary/Middle School")
+                        .font(.custom("DancingScript-Bold", size: 34))
+                        .foregroundColor(.white)
+                        .padding(5)) {
+                        ForEach(filteredBooks.filter { $0.category == Category.three.rawValue }) { category in
+                            BookCardView(book: category, showSafari: $showSafari, selectedURL: $selectedURL)
+                        }
+                    }
+                }
+                .padding(5)
+            }
+            .navigationTitle("Books")
+            .searchable(text: $searchText)
+            .background(Color("reeseblue"))
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity).background(Color("reeseblue"))
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .sheet(item: $selectedURL) { identifiableURL in
+            SafariView(url: identifiableURL.url)
+        }
+    }
+}
+
+
+struct SafariView: UIViewControllerRepresentable {
+    let url: URL
+
+    func makeUIViewController(context: Context) -> SFSafariViewController {
+        return SFSafariViewController(url: url)
+    }
+
+    func updateUIViewController(_ vc: SFSafariViewController, context: Context) {}
+}
+
+struct BookCardView: View {
+    var book: Book
+    @Binding var showSafari: Bool
+    @Binding var selectedURL: IdentifiableURL?
+
+    var body: some View {
+        VStack {
+            VStack {
+                Image(systemName: "book.fill")
+                    .font(.system(size: 30))
+                    .foregroundColor(.white)
+
+                let formattedAuthor = book.author
+                    .components(separatedBy: ", ")
+                    .reversed()
+                    .joined(separator: " ")
+
+                Text(formattedAuthor)
+                    .font(.custom("DancingScript-Bold", size: 24))
+                    .foregroundColor(.white)
+                    .padding(5)
+
+                Text(book.title)
+                    .font(.custom("Gabriela-Regular", size: 20))
+                    .underline()
+                    .foregroundColor(.white)
+
+                Text(book.description)
+                    .font(.custom("Gabriela-Regular", size: 18))
+                    .foregroundColor(.white)
+            }
+            .padding()
+            .background(Color.white.opacity(0.1))
+            .cornerRadius(10)
+
+            Button(action: {
+                let formattedAuthor = book.author.components(separatedBy: ", ").reversed().joined(separator: " ")
+                let query = "\(book.title) \(formattedAuthor)"
+                if let encoded = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+                   let url = URL(string: "https://www.amazon.com/s?k=\(encoded)") {
+                    selectedURL = IdentifiableURL(url: url) // This will trigger the Safari sheet
+                }
+            }) {
+                Text("Buy Book")
+                    .padding(.horizontal)
+                    .padding(.vertical, 8)
+                    .background(Color.white)
+                    .foregroundColor(.accentColor)
+                    .cornerRadius(25)
+                    .shadow(radius: 2)
+            }
+            .padding(.bottom, 10)
+        }
+        .padding(.bottom, 15) // Added padding for spacing between cards
     }
 }
 
