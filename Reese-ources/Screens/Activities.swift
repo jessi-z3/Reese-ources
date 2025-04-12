@@ -55,9 +55,6 @@ struct Activities: View {
                     
                 }
                 Spacer()
-                Image("brave-logo2x")
-                    .resizable().scaledToFit()
-                    .frame(width: UIScreen.main.bounds.width-20, alignment: .center)
             }
             
             .frame(maxWidth: .infinity, maxHeight: .infinity).background(Color("reeseblue"))

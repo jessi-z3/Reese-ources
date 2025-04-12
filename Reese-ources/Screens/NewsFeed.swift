@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Foundation
+import CloudKit
 
 struct Root: Codable {
     var pledges: [Pledge]
@@ -32,53 +33,57 @@ struct PledgeModel: Codable{
 
 class ViewModel: ObservableObject{
     @Published var pledges: Root = Root(pledges: [Pledge(name: "Test", city: "Tester", age: 13)])
-
-    var pledgeModel: PledgeModel?
-    func fetch() {
-        guard let url = URL(string: "https://yellowbird.dev/pledges.json") else{
-            return
-        }
-        let task = URLSession.shared.dataTask(with: url ){ data, response, error in
-            guard let data = data, error == nil else{
-                return
-            }
-        do {
-            let finalData = try JSONDecoder().decode(PledgeModel.self, from:data)
-            self.pledgeModel = finalData
-            self.pledges.pledges = (self.pledgeModel?.data!.pledges)!
-        }
-        catch {
-            print(error)
+    @Published var hasSigned: Bool {
+        didSet {
+            UserDefaults.standard.set(hasSigned, forKey: "hasSigned")
         }
     }
-    task.resume()
-}
+
+    init() {
+        self.hasSigned = UserDefaults.standard.bool(forKey: "hasSigned")
+    }
     
-func post(name: String, city: String, age: Int) async {
-    let pledge = Pledge(name: name, city: city, age: age)
-    guard let url = URL(string: "https://yellowbird.dev/pledges.json") else{
-        return
+    private let container = CKContainer(identifier: "iCloud.reesewall")
+    private var database: CKDatabase { container.publicCloudDatabase }
+    
+    func fetch() {
+        let query = CKQuery(recordType: "Pledge", predicate: NSPredicate(value: true))
+        database.perform(query, inZoneWith: nil) { records, error in
+            if let records = records {
+                DispatchQueue.main.async {
+                    self.pledges = Root(pledges: records.compactMap { record in
+                        if let name = record["name"] as? String,
+                           let city = record["city"] as? String,
+                           let age = record["age"] as? Int {
+                            return Pledge(name: name, city: city, age: age)
+                        }
+                        return nil
+                    })
+                }
+            } else if let error = error {
+                print("CloudKit fetch error: \(error)")
+            }
+        }
     }
-    guard let encoded = try? JSONEncoder().encode(pledge) else{
-        print("Failed to encode.")
-        return
-    }
-    var request = URLRequest(url: url)
-    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-    request.httpMethod = "POST"
-    request.httpBody = encoded
-    do {
-        let (data, response) = try await URLSession.shared.upload(for: request, from: encoded)
-        // handle the result
-    } catch {
-            print("Signing failed. \(error)")
+
+    func post(name: String, city: String, age: Int) async {
+        let record = CKRecord(recordType: "Pledge")
+        record["name"] = name as CKRecordValue
+        record["city"] = city as CKRecordValue
+        record["age"] = age as CKRecordValue
+
+        do {
+            let savedRecord = try await database.save(record)
+            print("✅ Successfully saved pledge: \(savedRecord)")
+            await MainActor.run {
+                self.fetch()
+                self.hasSigned = true
+            }
+        } catch {
+            print("❌ CloudKit save error: \(error)")
         }
     }
 }
-
-
-
-
 
 struct NewsFeed: View {
     @StateObject var viewModel = ViewModel()
@@ -89,14 +94,30 @@ struct NewsFeed: View {
     var body: some View {
         ScrollView{
             Text(" Pledge Wall ").font(.custom("DancingScript-Bold", size: 70)).foregroundColor(.white)
-            Button{
-                signing.toggle()
-            }label: {
-                Text("Sign the Pledge")
-                    .font(.custom("Gabriela-Regular", size: 24))
+            if !viewModel.hasSigned {
+                Button {
+                    signing.toggle()
+                } label: {
+                    Text("Sign the Pledge")
+                        .font(.custom("Gabriela-Regular", size: 24))
+                }
+                .buttonStyle(.borderedProminent)
             }
-            .buttonStyle(.borderedProminent)
-            if signing{
+            if viewModel.hasSigned {
+                VStack {
+                    Text("Thank you for signing the pledge!")
+                        .font(.custom("Gabriela-Regular", size: 22))
+                        .foregroundStyle(.white)
+                    Button("Sign for Someone Else") {
+                        name = ""
+                        city = ""
+                        age = 13
+                        viewModel.hasSigned = false
+                        signing = true
+                    }
+                    .buttonStyle(.borderedProminent)
+                }
+            } else if signing {
                 VStack(alignment: .trailing){
                     HStack{
                         Text("Name: ")
@@ -150,10 +171,16 @@ struct NewsFeed: View {
                 }
             }
         }
+        .refreshable {
+            viewModel.fetch()
+        }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color("reeseblue"))
         .onAppear{
             viewModel.fetch()
+            if viewModel.hasSigned {
+                signing = true
+            }
         }
     }
 }

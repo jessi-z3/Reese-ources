@@ -1,0 +1,66 @@
+{
+  "data": {
+    "questions": [
+      {
+        "question": "Nearly one-third of American teens are involved in bullying.",
+        "optionA": "True",
+        "optionB": "False",
+        "answer": "True"
+      },
+      {
+        "question": "Less than 10% of American teens admit to bullying others.",
+        "optionA": "True",
+        "optionB": "False",
+        "answer": "False"
+      },
+      {
+        "question": "Students who are bullied in school are usually attentive students with good attendance.",
+        "optionA": "True",
+        "optionB": "False",
+        "answer": "False"
+      },
+      {
+        "question": "Most students who bully are insecure.",
+        "optionA": "True",
+        "optionB": "False",
+        "answer": "False"
+      },
+      {
+        "question": "Contrary to stereotypes, male bullies are not usually bigger and physically stronger than their peers.",
+        "optionA": "True",
+        "optionB": "False",
+        "answer": "False"
+      },
+      {
+        "question": "Students who witness bullying often refuse to remain friends with the victim and feel guilty for not reporting the incident.",
+        "optionA": "True",
+        "optionB": "False",
+        "answer": "True"
+      },
+      {
+        "question": "Bullies have trouble making friends.",
+        "optionA": "True",
+        "optionB": "False",
+        "answer": "False"
+      },
+      {
+        "question": "Bullies do poorly in school compared to others who do not bully.",
+        "optionA": "True",
+        "optionB": "False",
+        "answer": "True"
+      },
+      {
+        "question": "Most bullies discontinue violent or aggressive behavior in adulthood.",
+        "optionA": "True",
+        "optionB": "False",
+        "answer": "False"
+      },
+      {
+        "question": "If you are being bullied, it’s best to handle it alone.",
+        "optionA": "True",
+        "optionB": "False",
+        "answer": "False"
+      }
+    ]
+  }
+}

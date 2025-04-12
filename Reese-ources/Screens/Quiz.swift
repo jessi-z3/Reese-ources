@@ -29,24 +29,28 @@ struct QuestionModel: Codable {
     var questions: [QuizQuestion]?
 }
 struct DataModel: Codable {
-    var data:QuestionModel?
+    var data: QuestionModel?
 }
 
-class QuestionViewModel{
-    private var sourceURL = URL(string: "https://yellowbird.dev/quizquestions.json")!
-    var questionModel: DataModel?
-    
-    func getAllQuestions(completion: @escaping () -> ()) {
-        URLSession.shared.dataTask(with: sourceURL ){[weak self](data, response, error) in
-            
-            if let data = data {
-                let jsonDecoder = JSONDecoder()
-                let finalData = try! jsonDecoder.decode(DataModel.self, from:data)
-                self?.questionModel = finalData
-                completion()
-            }
-        }.resume()
-    }}
+class QuestionViewModel {
+    var questionModel: DataModel?    
+    func getAllQuestions(completion: @escaping () -> Void) {
+        guard let url = Bundle.main.url(forResource: "QuizQuestions", withExtension: "json") else {
+            print("Failed to locate quizquestions.json in bundle.")
+            return
+        }
+
+        do {
+            let data = try Data(contentsOf: url)
+            let jsonDecoder = JSONDecoder()
+            let finalData = try jsonDecoder.decode(DataModel.self, from: data)
+            self.questionModel = finalData
+            completion()
+        } catch {
+            print("Error decoding local JSON: \(error)")
+        }
+    }
+}
 
     
 enum Route: Hashable {
@@ -61,24 +65,23 @@ struct Quiz: View {
     @State private var nextIndex = 0
     @State private var userScore = 0
     
-    @State private var showScoreView:String = ""
+    @State private var showScoreView: String = ""
     
-    func next(){
+    func next() {
         if nextIndex >= 0 && nextIndex <= questions!.count - 2 {
             nextIndex += 1
-        }else {
+        } else {
             showScoreView = "Score"
         }
     }
     
-    
     var body: some View {
-        NavigationStack{
-            VStack{
-                if  questions?[nextIndex] != nil {
+        NavigationStack {
+            VStack {
+                if questions?[nextIndex] != nil {
                     let question = questions![nextIndex]
                     
-                    QuestionView(question: question.question, optionA: question.optionA, optionB: question.optionB, answer: question.answer){
+                    QuestionView(question: question.question, optionA: question.optionA, optionB: question.optionB, answer: question.answer) {
                         score in userScore += score
                         next()
                     }
@@ -86,24 +89,24 @@ struct Quiz: View {
                 Spacer()
                 
             }
-            .toolbar(){
-                if(!showScoreView.isEmpty){
-                    ToolbarItem(placement: .cancellationAction){
-                        NavigationLink("Score", destination: ScoreView( score: userScore,total: questions!.count )).buttonStyle(UtilButtonStyle())
+            .toolbar() {
+                if (!showScoreView.isEmpty) {
+                    ToolbarItem(placement: .cancellationAction) {
+                        NavigationLink("Score", destination: ScoreView(score: userScore, total: questions!.count)).buttonStyle(UtilButtonStyle())
                     }
                 } else {
-                    ToolbarItem(placement: .cancellationAction){
+                    ToolbarItem(placement: .cancellationAction) {
                         UtilButton("Exit", goBack: true)
                     }
                 }
-                ToolbarItem(placement: .confirmationAction){
-                    UtilButton("Next"){
+                ToolbarItem(placement: .confirmationAction) {
+                    UtilButton("Next") {
                         next()
                     }
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity).background(Color("reeseblue"))
-            .onAppear{
+            .onAppear {
                 viewModel.getAllQuestions(completion: {
                     let questionData = viewModel.questionModel
                     

@@ -52,6 +52,7 @@
 		48F056F42A316CF900F5C324 /* Program.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 48F056F12A316CF900F5C324 /* Program.pdf */; };
 		48F056F52A316CF900F5C324 /* Pledge.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 48F056F22A316CF900F5C324 /* Pledge.pdf */; };
 		48F056F62A316CF900F5C324 /* Mission.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 48F056F32A316CF900F5C324 /* Mission.pdf */; };
+		CC21B7512DAAE7D600A8D688 /* QuizQuestions.json in Resources */ = {isa = PBXBuildFile; fileRef = CC21B7502DAAE7D600A8D688 /* QuizQuestions.json */; };
 		CC5783132AB91AFD006F8881 /* NewsFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5783122AB91AFD006F8881 /* NewsFeed.swift */; };
 		CC5783182ABBC6C7006F8881 /* PledgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5783172ABBC6C7006F8881 /* PledgeView.swift */; };
 /* End PBXBuildFile section */
@@ -123,6 +124,8 @@
 		48F056F12A316CF900F5C324 /* Program.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Program.pdf; sourceTree = "<group>"; };
 		48F056F22A316CF900F5C324 /* Pledge.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Pledge.pdf; sourceTree = "<group>"; };
 		48F056F32A316CF900F5C324 /* Mission.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Mission.pdf; sourceTree = "<group>"; };
+		CC21B74F2DAAD59800A8D688 /* Reese-ources.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Reese-ources.entitlements"; sourceTree = "<group>"; };
+		CC21B7502DAAE7D600A8D688 /* QuizQuestions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = QuizQuestions.json; sourceTree = "<group>"; };
 		CC5783122AB91AFD006F8881 /* NewsFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeed.swift; sourceTree = "<group>"; };
 		CC5783172ABBC6C7006F8881 /* PledgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PledgeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -184,8 +187,10 @@
 		48F056B42A3134AA00F5C324 /* Reese-ources */ = {
 			isa = PBXGroup;
 			children = (
+				CC21B74F2DAAD59800A8D688 /* Reese-ources.entitlements */,
 				4852E1E02A37CAD400AE450D /* Prompt+CoreDataClass.swift */,
 				4852E1E12A37CAD400AE450D /* Prompt+CoreDataProperties.swift */,
+				CC21B7502DAAE7D600A8D688 /* QuizQuestions.json */,
 				48C74BAA2A3A6CB80093F101 /* Info.plist */,
 				48C74BA72A3A60100093F101 /* Fonts */,
 				CC5783152ABBC62F006F8881 /* Views */,
@@ -407,6 +412,7 @@
 				48248BE52A32759E001DEE39 /* Kindness2-8.pdf in Resources */,
 				48248BEB2A32759E001DEE39 /* Kindness2-4.pdf in Resources */,
 				48248BE42A32759E001DEE39 /* Kindness2-10.pdf in Resources */,
+				CC21B7512DAAE7D600A8D688 /* QuizQuestions.json in Resources */,
 				48248BF52A328D26001DEE39 /* Launch Screen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -610,6 +616,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Reese-ources/Reese-ources.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "Reese-ources/Fonts/DancingScript-Bold.ttf Reese-ources/Preview\\ Content Reese-ources/Fonts/Gabriela-Regular.ttf";
@@ -630,7 +637,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = "YellowBird.dev.Reese-ources";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jessi.Reese-ources";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -646,6 +653,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Reese-ources/Reese-ources.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "Reese-ources/Fonts/DancingScript-Bold.ttf Reese-ources/Preview\\ Content Reese-ources/Fonts/Gabriela-Regular.ttf";
@@ -666,7 +674,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = "YellowBird.dev.Reese-ources";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jessi.Reese-ources";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
