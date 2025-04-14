@@ -38,16 +38,16 @@ struct ContentView: View {
                                             .foregroundStyle(Color.accentColor)
                                         Spacer()
                                         Text("""
-                                            -Name calling
-                                            -Making hurtful jokes
-                                            -Unwelcome teasing
-                                            -Spreading rumors
-                                            -Talking behind someone’s back
-                                            -Intentional backhanded comments
-                                            -Teasing and taunting
-                                            -Leaving others out
-                                            -Manipulation
-                                            -Humiliation 
+                                            - Name calling
+                                            - Making hurtful jokes
+                                            - Unwelcome teasing
+                                            - Spreading rumors
+                                            - Talking behind someone’s back
+                                            - Intentional backhanded comments
+                                            - Teasing and taunting
+                                            - Leaving others out
+                                            - Manipulation
+                                            - Humiliation 
                                             
                                             If you feel as though any of these have played into a day at school, work, or home, reach out to a trusted adult. You can also reach out to any of the numbers listed in my resources! Just tap on the triangle at the bottom of the screen! 
                                             """)

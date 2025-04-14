@@ -28,10 +28,7 @@
 		48248BF52A328D26001DEE39 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48248BF42A328D26001DEE39 /* Launch Screen.storyboard */; };
 		48248BF72A32910E001DEE39 /* Help.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48248BF62A32910E001DEE39 /* Help.swift */; };
 		48248BF92A32A819001DEE39 /* Writing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48248BF82A32A819001DEE39 /* Writing.swift */; };
-		48248BFC2A32C7DE001DEE39 /* Prompts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 48248BFA2A32C7DE001DEE39 /* Prompts.xcdatamodeld */; };
 		48284C812A32262900DADC43 /* BookList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48284C802A32262900DADC43 /* BookList.swift */; };
-		4852E1E22A37CAD400AE450D /* Prompt+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4852E1E02A37CAD400AE450D /* Prompt+CoreDataClass.swift */; };
-		4852E1E32A37CAD400AE450D /* Prompt+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4852E1E12A37CAD400AE450D /* Prompt+CoreDataProperties.swift */; };
 		4852E1E52A37DA2100AE450D /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4852E1E42A37DA2100AE450D /* PersistenceController.swift */; };
 		4852E1E72A37E18400AE450D /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4852E1E62A37E18400AE450D /* Quiz.swift */; };
 		4852E1E92A37FD6B00AE450D /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4852E1E82A37FD6B00AE450D /* Buttons.swift */; };
@@ -52,6 +49,9 @@
 		48F056F42A316CF900F5C324 /* Program.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 48F056F12A316CF900F5C324 /* Program.pdf */; };
 		48F056F52A316CF900F5C324 /* Pledge.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 48F056F22A316CF900F5C324 /* Pledge.pdf */; };
 		48F056F62A316CF900F5C324 /* Mission.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 48F056F32A316CF900F5C324 /* Mission.pdf */; };
+		CC125C092DAD8AC1007E5CA3 /* Reese-ources.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC125C072DAD8AC1007E5CA3 /* Reese-ources.xcdatamodeld */; };
+		CC15C4E02DAD90B6009BD9F9 /* Prompt+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC15C4DE2DAD90B6009BD9F9 /* Prompt+CoreDataClass.swift */; };
+		CC15C4E12DAD90B6009BD9F9 /* Prompt+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC15C4DF2DAD90B6009BD9F9 /* Prompt+CoreDataProperties.swift */; };
 		CC21B7512DAAE7D600A8D688 /* QuizQuestions.json in Resources */ = {isa = PBXBuildFile; fileRef = CC21B7502DAAE7D600A8D688 /* QuizQuestions.json */; };
 		CC5783132AB91AFD006F8881 /* NewsFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5783122AB91AFD006F8881 /* NewsFeed.swift */; };
 		CC5783182ABBC6C7006F8881 /* PledgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5783172ABBC6C7006F8881 /* PledgeView.swift */; };
@@ -96,10 +96,7 @@
 		48248BF42A328D26001DEE39 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		48248BF62A32910E001DEE39 /* Help.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Help.swift; sourceTree = "<group>"; };
 		48248BF82A32A819001DEE39 /* Writing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Writing.swift; sourceTree = "<group>"; };
-		48248BFB2A32C7DE001DEE39 /* Prompts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Prompts.xcdatamodel; sourceTree = "<group>"; };
 		48284C802A32262900DADC43 /* BookList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookList.swift; sourceTree = "<group>"; };
-		4852E1E02A37CAD400AE450D /* Prompt+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Prompt+CoreDataClass.swift"; sourceTree = "<group>"; };
-		4852E1E12A37CAD400AE450D /* Prompt+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Prompt+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4852E1E42A37DA2100AE450D /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		4852E1E62A37E18400AE450D /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		4852E1E82A37FD6B00AE450D /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
@@ -124,6 +121,9 @@
 		48F056F12A316CF900F5C324 /* Program.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Program.pdf; sourceTree = "<group>"; };
 		48F056F22A316CF900F5C324 /* Pledge.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Pledge.pdf; sourceTree = "<group>"; };
 		48F056F32A316CF900F5C324 /* Mission.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Mission.pdf; sourceTree = "<group>"; };
+		CC125C082DAD8AC1007E5CA3 /* Reese-ources.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Reese-ources.xcdatamodel"; sourceTree = "<group>"; };
+		CC15C4DE2DAD90B6009BD9F9 /* Prompt+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Prompt+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CC15C4DF2DAD90B6009BD9F9 /* Prompt+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Prompt+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CC21B74F2DAAD59800A8D688 /* Reese-ources.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Reese-ources.entitlements"; sourceTree = "<group>"; };
 		CC21B7502DAAE7D600A8D688 /* QuizQuestions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = QuizQuestions.json; sourceTree = "<group>"; };
 		CC5783122AB91AFD006F8881 /* NewsFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeed.swift; sourceTree = "<group>"; };
@@ -167,6 +167,8 @@
 		48F056A92A3134AA00F5C324 = {
 			isa = PBXGroup;
 			children = (
+				CC15C4DE2DAD90B6009BD9F9 /* Prompt+CoreDataClass.swift */,
+				CC15C4DF2DAD90B6009BD9F9 /* Prompt+CoreDataProperties.swift */,
 				48F056B42A3134AA00F5C324 /* Reese-ources */,
 				48F056C52A3134AB00F5C324 /* Reese-ourcesTests */,
 				48F056CF2A3134AB00F5C324 /* Reese-ourcesUITests */,
@@ -188,8 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				CC21B74F2DAAD59800A8D688 /* Reese-ources.entitlements */,
-				4852E1E02A37CAD400AE450D /* Prompt+CoreDataClass.swift */,
-				4852E1E12A37CAD400AE450D /* Prompt+CoreDataProperties.swift */,
+				CC125C072DAD8AC1007E5CA3 /* Reese-ources.xcdatamodeld */,
 				CC21B7502DAAE7D600A8D688 /* QuizQuestions.json */,
 				48C74BAA2A3A6CB80093F101 /* Info.plist */,
 				48C74BA72A3A60100093F101 /* Fonts */,
@@ -197,7 +198,6 @@
 				CC5783142ABBC5FB006F8881 /* PDFs */,
 				48F056B52A3134AA00F5C324 /* Reese_ourcesApp.swift */,
 				CC5783162ABBC644006F8881 /* Screens */,
-				48248BFA2A32C7DE001DEE39 /* Prompts.xcdatamodeld */,
 				48F056B92A3134AB00F5C324 /* Assets.xcassets */,
 				48F056BB2A3134AB00F5C324 /* Preview Content */,
 				48248BF42A328D26001DEE39 /* Launch Screen.storyboard */,
@@ -441,11 +441,10 @@
 				48248BF72A32910E001DEE39 /* Help.swift in Sources */,
 				4852E1E52A37DA2100AE450D /* PersistenceController.swift in Sources */,
 				48248BF32A32801E001DEE39 /* Coloring.swift in Sources */,
-				4852E1E22A37CAD400AE450D /* Prompt+CoreDataClass.swift in Sources */,
+				CC125C092DAD8AC1007E5CA3 /* Reese-ources.xcdatamodeld in Sources */,
 				4800B15C2A3657BB00CD6F60 /* Prompts.swift in Sources */,
 				48284C812A32262900DADC43 /* BookList.swift in Sources */,
 				48C74BAC2A3A6DC50093F101 /* Spotlight.swift in Sources */,
-				4852E1E32A37CAD400AE450D /* Prompt+CoreDataProperties.swift in Sources */,
 				4852E1E92A37FD6B00AE450D /* Buttons.swift in Sources */,
 				48F056B82A3134AA00F5C324 /* ContentView.swift in Sources */,
 				4852E1EB2A37FDA300AE450D /* QuestionView.swift in Sources */,
@@ -453,9 +452,10 @@
 				4852E1ED2A38000200AE450D /* ScoreView.swift in Sources */,
 				48F056B62A3134AA00F5C324 /* Reese_ourcesApp.swift in Sources */,
 				CC5783182ABBC6C7006F8881 /* PledgeView.swift in Sources */,
+				CC15C4E02DAD90B6009BD9F9 /* Prompt+CoreDataClass.swift in Sources */,
+				CC15C4E12DAD90B6009BD9F9 /* Prompt+CoreDataProperties.swift in Sources */,
 				48248BF12A327631001DEE39 /* Activities.swift in Sources */,
 				4852E1E72A37E18400AE450D /* Quiz.swift in Sources */,
-				48248BFC2A32C7DE001DEE39 /* Prompts.xcdatamodeld in Sources */,
 				4800B15A2A36573200CD6F60 /* PromptView.swift in Sources */,
 				CC5783132AB91AFD006F8881 /* NewsFeed.swift in Sources */,
 				48F056EC2A31526100F5C324 /* PDFView.swift in Sources */,
@@ -618,7 +618,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Reese-ources/Reese-ources.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "Reese-ources/Fonts/DancingScript-Bold.ttf Reese-ources/Preview\\ Content Reese-ources/Fonts/Gabriela-Regular.ttf";
 				DEVELOPMENT_TEAM = AG7M436GF7;
 				ENABLE_PREVIEWS = YES;
@@ -636,8 +636,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jessi.Reese-ources";
+				MARKETING_VERSION = 2.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "YellowBird.dev.Reese-ources";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -655,7 +655,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Reese-ources/Reese-ources.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "Reese-ources/Fonts/DancingScript-Bold.ttf Reese-ources/Preview\\ Content Reese-ources/Fonts/Gabriela-Regular.ttf";
 				DEVELOPMENT_TEAM = AG7M436GF7;
 				ENABLE_PREVIEWS = YES;
@@ -673,8 +673,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jessi.Reese-ources";
+				MARKETING_VERSION = 2.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "YellowBird.dev.Reese-ources";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -803,13 +803,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		48248BFA2A32C7DE001DEE39 /* Prompts.xcdatamodeld */ = {
+		CC125C072DAD8AC1007E5CA3 /* Reese-ources.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				48248BFB2A32C7DE001DEE39 /* Prompts.xcdatamodel */,
+				CC125C082DAD8AC1007E5CA3 /* Reese-ources.xcdatamodel */,
 			);
-			currentVersion = 48248BFB2A32C7DE001DEE39 /* Prompts.xcdatamodel */;
-			path = Prompts.xcdatamodeld;
+			currentVersion = CC125C082DAD8AC1007E5CA3 /* Reese-ources.xcdatamodel */;
+			path = "Reese-ources.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

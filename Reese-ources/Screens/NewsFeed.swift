@@ -38,6 +38,7 @@ class ViewModel: ObservableObject{
             UserDefaults.standard.set(hasSigned, forKey: "hasSigned")
         }
     }
+    @Published var showInappropriateContentAlert = false
 
     init() {
         self.hasSigned = UserDefaults.standard.bool(forKey: "hasSigned")
@@ -46,6 +47,12 @@ class ViewModel: ObservableObject{
     private let container = CKContainer(identifier: "iCloud.reesewall")
     private var database: CKDatabase { container.publicCloudDatabase }
     
+    private func containsInappropriateContent(_ text: String) -> Bool {
+        let inappropriateWords = ["badword1", "badword2", "inappropriate"] // Add real inappropriate words here
+        let lowercasedText = text.lowercased()
+        return inappropriateWords.contains { lowercasedText.contains($0) }
+    }
+
     func fetch() {
         let query = CKQuery(recordType: "Pledge", predicate: NSPredicate(value: true))
         database.perform(query, inZoneWith: nil) { records, error in
@@ -67,6 +74,13 @@ class ViewModel: ObservableObject{
     }
 
     func post(name: String, city: String, age: Int) async {
+        if containsInappropriateContent(name) || containsInappropriateContent(city) {
+            await MainActor.run {
+                self.showInappropriateContentAlert = true
+            }
+            return
+        }
+
         let record = CKRecord(recordType: "Pledge")
         record["name"] = name as CKRecordValue
         record["city"] = city as CKRecordValue
@@ -91,6 +105,8 @@ struct NewsFeed: View {
     @State var city = ""
     @State var age: Int = 13
     @State var signing = false
+    @State private var showAlert = false
+
     var body: some View {
         ScrollView{
             Text(" Pledge Wall ").font(.custom("DancingScript-Bold", size: 70)).foregroundColor(.white)
@@ -181,6 +197,14 @@ struct NewsFeed: View {
             if viewModel.hasSigned {
                 signing = true
             }
+        }
+        .onChange(of: viewModel.showInappropriateContentAlert) { newValue in
+            showAlert = newValue
+        }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Inappropriate Content Detected"),
+                  message: Text("Your post contains inappropriate content and has been blocked."),
+                  dismissButton: .default(Text("OK")))
         }
     }
 }

@@ -2,7 +2,7 @@
 //  Prompt+CoreDataClass.swift
 //  Reese-ources
 //
-//  Created by Jessi on 6/12/23.
+//  Created by Jessi Zimmerman on 4/14/25.
 //
 //
 
