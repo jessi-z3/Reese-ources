@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct Reese_ourcesApp: App {
     let persistenceController = PersistenceController.shared
     @Environment(\.scenePhase) var scenePhase
-
+    init() {
+            FirebaseApp.configure()
+        }
     var body: some Scene {
         WindowGroup {
             ContentView()

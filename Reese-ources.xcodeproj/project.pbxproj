@@ -55,6 +55,9 @@
 		CC21B7512DAAE7D600A8D688 /* QuizQuestions.json in Resources */ = {isa = PBXBuildFile; fileRef = CC21B7502DAAE7D600A8D688 /* QuizQuestions.json */; };
 		CC5783132AB91AFD006F8881 /* NewsFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5783122AB91AFD006F8881 /* NewsFeed.swift */; };
 		CC5783182ABBC6C7006F8881 /* PledgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5783172ABBC6C7006F8881 /* PledgeView.swift */; };
+		CCE2ABD52DB7565A009C4D61 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCE2ABD42DB7565A009C4D61 /* GoogleService-Info.plist */; };
+		CCE2ABD82DB756F5009C4D61 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CCE2ABD72DB756F5009C4D61 /* FirebaseAnalytics */; };
+		CCE2ABDA2DB756F5009C4D61 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CCE2ABD92DB756F5009C4D61 /* FirebaseFirestore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +131,7 @@
 		CC21B7502DAAE7D600A8D688 /* QuizQuestions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = QuizQuestions.json; sourceTree = "<group>"; };
 		CC5783122AB91AFD006F8881 /* NewsFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeed.swift; sourceTree = "<group>"; };
 		CC5783172ABBC6C7006F8881 /* PledgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PledgeView.swift; sourceTree = "<group>"; };
+		CCE2ABD42DB7565A009C4D61 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCE2ABD82DB756F5009C4D61 /* FirebaseAnalytics in Frameworks */,
+				CCE2ABDA2DB756F5009C4D61 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +195,7 @@
 		48F056B42A3134AA00F5C324 /* Reese-ources */ = {
 			isa = PBXGroup;
 			children = (
+				CCE2ABD42DB7565A009C4D61 /* GoogleService-Info.plist */,
 				CC21B74F2DAAD59800A8D688 /* Reese-ources.entitlements */,
 				CC125C072DAD8AC1007E5CA3 /* Reese-ources.xcdatamodeld */,
 				CC21B7502DAAE7D600A8D688 /* QuizQuestions.json */,
@@ -374,6 +381,9 @@
 				Base,
 			);
 			mainGroup = 48F056A92A3134AA00F5C324;
+			packageReferences = (
+				CCE2ABD62DB756F5009C4D61 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 48F056B32A3134AA00F5C324 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -392,6 +402,7 @@
 			files = (
 				489E9CF42A3A258D007EF3CB /* Gabriela-Regular.ttf in Resources */,
 				489E9CF32A3A2588007EF3CB /* DancingScript-Bold.ttf in Resources */,
+				CCE2ABD52DB7565A009C4D61 /* GoogleService-Info.plist in Resources */,
 				48248BE82A32759E001DEE39 /* Kindness2-2.pdf in Resources */,
 				48F056F02A3156D300F5C324 /* BRAVE.pdf in Resources */,
 				48248BE62A32759E001DEE39 /* Kindness2-9.pdf in Resources */,
@@ -801,6 +812,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CCE2ABD62DB756F5009C4D61 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.12.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CCE2ABD72DB756F5009C4D61 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CCE2ABD62DB756F5009C4D61 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		CCE2ABD92DB756F5009C4D61 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CCE2ABD62DB756F5009C4D61 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		CC125C072DAD8AC1007E5CA3 /* Reese-ources.xcdatamodeld */ = {

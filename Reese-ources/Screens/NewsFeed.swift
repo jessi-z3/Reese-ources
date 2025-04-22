@@ -8,6 +8,9 @@
 import SwiftUI
 import Foundation
 import CloudKit
+import Firebase
+
+let CLOUDKIT_BASE = "https://api.development.apple-cloudkit.com"
 
 struct Root: Codable {
     var pledges: [Pledge]
@@ -44,9 +47,6 @@ class ViewModel: ObservableObject{
         self.hasSigned = UserDefaults.standard.bool(forKey: "hasSigned")
     }
     
-    private let container = CKContainer(identifier: "iCloud.reesewall")
-    private var database: CKDatabase { container.publicCloudDatabase }
-    
     private func containsInappropriateContent(_ text: String) -> Bool {
         let inappropriateWords = ["badword1", "badword2", "inappropriate"] // Add real inappropriate words here
         let lowercasedText = text.lowercased()
@@ -54,21 +54,24 @@ class ViewModel: ObservableObject{
     }
 
     func fetch() {
-        let query = CKQuery(recordType: "Pledge", predicate: NSPredicate(value: true))
-        database.perform(query, inZoneWith: nil) { records, error in
-            if let records = records {
-                DispatchQueue.main.async {
-                    self.pledges = Root(pledges: records.compactMap { record in
-                        if let name = record["name"] as? String,
-                           let city = record["city"] as? String,
-                           let age = record["age"] as? Int {
-                            return Pledge(name: name, city: city, age: age)
-                        }
+        Task {
+            let db = Firestore.firestore()
+            do {
+                let snapshot = try await db.collection("pledges").getDocuments()
+                let pledges = snapshot.documents.compactMap { doc -> Pledge? in
+                    let data = doc.data()
+                    guard let name = data["name"] as? String,
+                          let city = data["city"] as? String,
+                          let age = data["age"] as? Int else {
                         return nil
-                    })
+                    }
+                    return Pledge(name: name, city: city, age: age)
                 }
-            } else if let error = error {
-                print("CloudKit fetch error: \(error)")
+                await MainActor.run {
+                    self.pledges = Root(pledges: pledges)
+                }
+            } catch {
+                print("❌ Firestore fetch error: \(error)")
             }
         }
     }
@@ -81,20 +84,22 @@ class ViewModel: ObservableObject{
             return
         }
 
-        let record = CKRecord(recordType: "Pledge")
-        record["name"] = name as CKRecordValue
-        record["city"] = city as CKRecordValue
-        record["age"] = age as CKRecordValue
+        let db = Firestore.firestore()
+        let pledgeData: [String: Any] = [
+            "name": name,
+            "city": city,
+            "age": age
+        ]
 
         do {
-            let savedRecord = try await database.save(record)
-            print("✅ Successfully saved pledge: \(savedRecord)")
+            _ = try await db.collection("pledges").addDocument(data: pledgeData)
+            print("✅ Successfully saved pledge to Firestore")
             await MainActor.run {
                 self.fetch()
                 self.hasSigned = true
             }
         } catch {
-            print("❌ CloudKit save error: \(error)")
+            print("❌ Firestore save error: \(error)")
         }
     }
 }

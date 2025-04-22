@@ -30,5 +30,3 @@ struct PledgeView: View {
         self.pledge = pledge
     }
 }
-
-
