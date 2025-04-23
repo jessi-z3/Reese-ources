@@ -53,11 +53,13 @@
 		CC15C4E02DAD90B6009BD9F9 /* Prompt+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC15C4DE2DAD90B6009BD9F9 /* Prompt+CoreDataClass.swift */; };
 		CC15C4E12DAD90B6009BD9F9 /* Prompt+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC15C4DF2DAD90B6009BD9F9 /* Prompt+CoreDataProperties.swift */; };
 		CC21B7512DAAE7D600A8D688 /* QuizQuestions.json in Resources */ = {isa = PBXBuildFile; fileRef = CC21B7502DAAE7D600A8D688 /* QuizQuestions.json */; };
+		CC4E77BE2DB9886C00093985 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CC4E77BD2DB9886C00093985 /* FirebaseAuth */; };
 		CC5783132AB91AFD006F8881 /* NewsFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5783122AB91AFD006F8881 /* NewsFeed.swift */; };
 		CC5783182ABBC6C7006F8881 /* PledgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5783172ABBC6C7006F8881 /* PledgeView.swift */; };
 		CCE2ABD52DB7565A009C4D61 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCE2ABD42DB7565A009C4D61 /* GoogleService-Info.plist */; };
 		CCE2ABD82DB756F5009C4D61 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CCE2ABD72DB756F5009C4D61 /* FirebaseAnalytics */; };
 		CCE2ABDA2DB756F5009C4D61 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CCE2ABD92DB756F5009C4D61 /* FirebaseFirestore */; };
+		CCE2ABDC2DB76F03009C4D61 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CCE2ABDB2DB76F03009C4D61 /* FirebaseAuth */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,7 +142,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCE2ABD82DB756F5009C4D61 /* FirebaseAnalytics in Frameworks */,
+				CCE2ABDC2DB76F03009C4D61 /* FirebaseAuth in Frameworks */,
 				CCE2ABDA2DB756F5009C4D61 /* FirebaseFirestore in Frameworks */,
+				CC4E77BE2DB9886C00093985 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,7 +361,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1630;
 				TargetAttributes = {
 					48F056B12A3134AA00F5C324 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -540,6 +544,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = AG7M436GF7;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -601,6 +606,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = AG7M436GF7;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -631,7 +637,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "Reese-ources/Fonts/DancingScript-Bold.ttf Reese-ources/Preview\\ Content Reese-ources/Fonts/Gabriela-Regular.ttf";
-				DEVELOPMENT_TEAM = AG7M436GF7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Reese-ources/Info.plist";
@@ -647,7 +652,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.1;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "YellowBird.dev.Reese-ources";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -668,7 +673,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "Reese-ources/Fonts/DancingScript-Bold.ttf Reese-ources/Preview\\ Content Reese-ources/Fonts/Gabriela-Regular.ttf";
-				DEVELOPMENT_TEAM = AG7M436GF7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Reese-ources/Info.plist";
@@ -684,7 +688,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.1;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "YellowBird.dev.Reese-ources";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -699,11 +703,9 @@
 		48F056DA2A3134AB00F5C324 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = AG7M436GF7;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
@@ -719,11 +721,9 @@
 		48F056DB2A3134AB00F5C324 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = AG7M436GF7;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
@@ -739,10 +739,8 @@
 		48F056DD2A3134AB00F5C324 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = AG7M436GF7;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "YellowBird.dev.Reese-ourcesUITests";
@@ -757,10 +755,8 @@
 		48F056DE2A3134AB00F5C324 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = AG7M436GF7;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "YellowBird.dev.Reese-ourcesUITests";
@@ -825,6 +821,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CC4E77BD2DB9886C00093985 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CCE2ABD62DB756F5009C4D61 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
 		CCE2ABD72DB756F5009C4D61 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CCE2ABD62DB756F5009C4D61 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -834,6 +835,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CCE2ABD62DB756F5009C4D61 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
+		};
+		CCE2ABDB2DB76F03009C4D61 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CCE2ABD62DB756F5009C4D61 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
 		};
 /* End XCSwiftPackageProductDependency section */
 

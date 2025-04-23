@@ -9,6 +9,7 @@ import SwiftUI
 import Foundation
 import CloudKit
 import Firebase
+import FirebaseAuth
 
 let CLOUDKIT_BASE = "https://api.development.apple-cloudkit.com"
 
@@ -76,9 +77,10 @@ class ViewModel: ObservableObject{
         }
     }
 
-    func post(name: String, city: String, age: Int) async {
+    func post(name: String, city: String, age: Int) {
         if containsInappropriateContent(name) || containsInappropriateContent(city) {
-            await MainActor.run {
+            // Show the alert if inappropriate content is detected
+            DispatchQueue.main.async {
                 self.showInappropriateContentAlert = true
             }
             return
@@ -91,15 +93,28 @@ class ViewModel: ObservableObject{
             "age": age
         ]
 
-        do {
-            _ = try await db.collection("pledges").addDocument(data: pledgeData)
+        print("Posting data to Firestore: \(pledgeData)")  // Log the pledge data
+
+        if let user = Auth.auth().currentUser {
+            print("✅ Signed in as: \(user.uid)")
+        } else {
+            print("❌ Not signed in — Firestore write will fail due to auth rules")
+        }
+        
+        // Add the document to Firestore
+        db.collection("pledges").addDocument(data: pledgeData) { error in
+            if let error = error {
+                print("❌ Firestore save error: \(error.localizedDescription)")  // Handle error if any
+                return
+            }
+
             print("✅ Successfully saved pledge to Firestore")
-            await MainActor.run {
-                self.fetch()
+
+            // Refresh the pledges list and update UI once the data is saved
+            DispatchQueue.main.async {
+                self.fetch()  // Refresh pledges
                 self.hasSigned = true
             }
-        } catch {
-            print("❌ Firestore save error: \(error)")
         }
     }
 }
@@ -174,9 +189,7 @@ struct NewsFeed: View {
                     .frame(width: 300)
 
                     Button{
-                        Task{
-                            await viewModel.post(name: name, city: city, age: age)
-                        }
+                        viewModel.post(name: name, city: city, age: age)
                     }label: {
                         Text("Sign")
                             .font(.custom("Gabriela-Regular", size: 18))
